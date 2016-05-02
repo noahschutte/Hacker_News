@@ -1,0 +1,21 @@
+<div class="post-container">
+  <%= @post.title %>
+  <h6>
+    <%= time_ago_in_words(@post.created_at) %> Ago
+    | <%= link_to 'Edit', edit_post_path(@post)%>
+    | <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"}%>
+  </h6>
+  <%= @post.body %>
+</div>
+
+  <%= render '/comments/new.html' %>
+
+<div class="comments-container">
+  <h1>Comments</h1>
+  <%@comments.each do |comment|%>
+    <%= comment.content %>
+    <h6>
+      <%= time_ago_in_words(comment.created_at) %> Ago
+    </h6>
+  <%end%>
+</div>

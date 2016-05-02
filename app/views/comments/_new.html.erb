@@ -1,0 +1,16 @@
+<h1>Create Comment</h1>
+
+<%= form_for [@post, @comment] do |f| %>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+    <%=f.submit%>
+<%end%>
+
+<% if @comment.errors.any? %>
+  <h2><%=pluralize(@comment.errors.count, "error")%></h2>
+  <ul>
+    <li><%= error %></li>
+  </ul>
+<% end %>
