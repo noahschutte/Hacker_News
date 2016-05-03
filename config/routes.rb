@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
 
   root 'posts#index'
-    => 'sessions#new'
+
+  get '/logout' => 'sessions#logout'
+
 end
 
 
