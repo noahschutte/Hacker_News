@@ -12,6 +12,13 @@
     <a href='/'>Hacker News</a>
     <a href='/posts/new'>Create New Post</a>
   </p>
+  <% if logged_in? %>
+    <a href="/users/<%= @user.id %>">Profile</a>
+    <a href="/logout">Log out</a>
+  <% else %>
+    <a href="/users/new">Login</a>
+    <a href="/users/new">Register</a>
+  <% end %>
   <hr>
 </nav>
 <%= yield %>
